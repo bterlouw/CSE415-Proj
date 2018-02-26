@@ -70,9 +70,9 @@ Team:
 
 # Change the following to represent your own information:
 
-maggie = Partner("Smith", "Margaret", "maggiesmith99")
-john = Partner("Doe", "John", "jd007")
-team = [maggie, john]
+Brandon = Partner("TerLouw", "Brandon", "bterlouw")
+Warren = Partner("Cho", "Warren", "wcho")
+team = [Brandon, Warren]
 
 OPTION = '1'
 # Legal options are 1, 2, and 3.
