@@ -87,17 +87,20 @@ code two different classifiers, train each with two different data sets,
 compare how each did, and then optimize using either bagging
 or boosting.'''
 
-workload_distribution = '''Maggie will have primary responsibility for the 
-static evaluation function, John will have primary responsibility for
-the optimizations of alpha-beta pruning and Zobrist hashing, and both
-partners expect to be closely involved in writing the move-generation
-code and defining the personality of the agent.'''
+workload_distribution = '''We have a general idea of which direction we
+want to go for this project, two-layer feedforward neural networks. But we
+will start by exploring all options. Becuase we will have two classifiers,
+we can either develop one each in parallel in their entirety or both
+develop the same parts for each classifier. Initial tickets to be issued
+would be classification, regression, regularization, algorithm, and output.
+We will develop with the intent to run initial tests with the CIFAR10
+dataset.'''
 
 reference1 = '''Feedforward Neural Networks by McGonagle;
     URL: https://brilliant.org/wiki/feedforward-neural-networks/ (accessed Feb. 26, 2018)'''
 
-reference2 = '''"What\'s Wrong with Ultima," by Robert Abbott,
-    available online at: http://www.logicmazes.com/games/wgr.html'''
+reference2 = '''"Introduction to Random Forest Algorithm" by Saimadhu Polamuri,
+    source: http://dataaspirant.com/2017/05/22/random-forest-algorithm-machine-learing/ (accessed 26 Feb 2018)'''
 
 our_submission = Who_and_what(team, OPTION, title, approach, workload_distribution, [reference1, reference2])
 
