@@ -1,5 +1,6 @@
 import NeuralNet as classifier
 import csv
+import random
 from _sqlite3 import Row
 data = []
 with open('irisData.csv', newline='') as f:
@@ -16,8 +17,10 @@ with open('irisData.csv', newline='') as f:
             temp.append(1)
             temp.extend([float(i) for i in row])
             data.append(temp)
-
+random.shuffle(data)
+finalTest = data.pop()
 (weights,theta,epsilon) = classifier.train(data)
+print("Testing training data:")
 for i in range(len(data)):
     sum = 0
     for j in range(len(weights)):
@@ -26,5 +29,14 @@ for i in range(len(data)):
         print("We compute 1, actually: "+str(data[i][0]))
     else:
         print("We compute 0, actually: "+str(data[i][0]))
+print("Testing never seen data:")
+sum = 0
+for j in range(len(weights)):
+    sum += weights[j]*data[i][j]
+if sum > (theta - epsilon):
+    print("We compute 1, actually: "+str(data[i][0]))
+else:
+    print("We compute 0, actually: "+str(data[i][0]))
+
 
         
