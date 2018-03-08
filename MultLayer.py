@@ -3,7 +3,7 @@
 import NeuralNet as perc
 import numpy as np
 from math import exp
-import writeCsv as w
+#import writeCsv as w
 
 """This method is what is called by another program to build and start
 a neural network.  This is a feed forward neural netword with 1 hidden layer.
