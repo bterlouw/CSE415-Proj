@@ -5,6 +5,7 @@ from _sqlite3 import Row
 import numpy as np
 from pip._vendor.distlib.compat import raw_input
 
+#imports data from iris data
 def iris():
     data = []
     with open('irisData.csv', newline='') as f:
@@ -26,7 +27,8 @@ def iris():
                 temp.extend([float(i) for i in row])
                 data.append(temp)
     return data
-                
+
+#imports data from food data                
 def food():
     data = []
     with open('FoodData.csv', newline='') as f:
@@ -48,7 +50,8 @@ def food():
                 temp.extend([float(i) for i in row])
                 data.append(temp)
     return data
-    
+
+#begins a session of using a neural net    
 def run():
     a = str(raw_input("Iris data set?(i) or Food data set?(f)"))
     data = []
@@ -60,9 +63,11 @@ def run():
     for i in range(g):
         finalTest.append(data.pop())
     nodes = int(raw_input("How many hidden nodes?"))
-    error = float(raw_input("How much  error per epoch when done?"))  
-    n = float(raw_input("What do you want training rate to be?"))  
+    error = float(raw_input("At what error per epoch to stop?"))  
+    n = float(raw_input("What do you want training rate to be?")) 
+    #using program to build and train neural net 
     (hidWeight,outWeight) = classifier.createAndTrain(nodes,3,data,error,n)
+    #tests weights on all training data
     print("Testing training data:")
     testCor = 0
     testIncor = 0
@@ -80,6 +85,7 @@ def run():
         if(actual==d[0]): testCor += 1
         else: testIncor +=1
     print(str(float(testCor/(testCor+testIncor)))+" fraction correct on test data")
+    #tests weights on data never seen
     print("Testing never seen data:")
     newCor = 0
     newIncor = 0
@@ -98,6 +104,7 @@ def run():
         if(actual==d[0]): newCor += 1
         else: newIncor +=1
     print(str(float(newCor/(newCor+newIncor)))+" fraction correct on new data")
+    #allows user to enter own data(interesting to try with food)
     b = str(raw_input("Want to enter own data?(y/n)"))
     while (b=='y'):
         temp = []
@@ -132,14 +139,14 @@ def run():
             if finSigP[i] == m: actual.append(1)
             else: actual.append(0)
         if a=='i':
-            if actual == [1, 0, 0]: print('setosa')
-            elif actual == [0, 1, 0]: print('versicolor')
-            elif actual == [0, 0, 1]: print('versicolor')
+            if actual == [1, 0, 0]: print('Setosa')
+            elif actual == [0, 1, 0]: print('Versicolor')
+            elif actual == [0, 0, 1]: print('Verginica')
             else: print('none')
         else:
-            if actual == [1, 0, 0]: print('hotdog')
-            elif actual == [0, 1, 0]: print('bread')
-            elif actual == [0, 0, 1]: print('peanutbutter')
+            if actual == [1, 0, 0]: print('Hotdog')
+            elif actual == [0, 1, 0]: print('Bread')
+            elif actual == [0, 0, 1]: print('Peanut Butter')
             else: print('none')
         b = str(raw_input("Again?(y/n)"))
             
